@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://pruebasassets.portaloas.udistrital.edu.co/urano-style.css");
+@import url("https://pruebasassets.portaloas.udistrital.edu.co/oas.css");
+@import "~@angular/material/theming";
+// @import '~ngx-toastr/toastr';
+
+
+@include mat-core();
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
