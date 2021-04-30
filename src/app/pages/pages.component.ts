@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pages',
@@ -9,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
   loaded = false;
-  constructor() { }
+  userData: any;
+  environment: any;
+  loadingRouter: boolean;
+  terceroName: string = '';
+  constructor(private router: Router) {
+    this.environment = environment;
+    this.loadingRouter = true;
+   }
 
   ngOnInit(): void {
+    this.loaded = true;
 
 
   }

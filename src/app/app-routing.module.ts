@@ -8,7 +8,7 @@ const routes: Routes = [
       .then(m => m.PagesModule),
   },
 
-  { path: '**', redirectTo: 'pages/verificacion_informacion', pathMatch: 'full' }
+  { path: '**', redirectTo: 'pages/dashboard', pathMatch: 'full' }
 
 ];
 

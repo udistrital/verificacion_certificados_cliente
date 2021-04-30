@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerificacionInformacionComponent } from './verificacion-informacion/verificacion-informacion.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MatCardModule } from '@angular/material/card';
@@ -18,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 const pagesComponents = [
+  DashboardComponent,
   VerificacionInformacionComponent,
 ];
 
