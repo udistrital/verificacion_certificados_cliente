@@ -1,17 +1,42 @@
 
-  Hola Mundo
 <mat-card class="card-oas" >
     <mat-card-header>
         <!-- <mat-card-title>Terceros</mat-card-title>
         <mat-card-subtitle>Ambiente de pruebas</mat-card-subtitle>
         -->
-        <mat-card-title>Información básica</mat-card-title>
+        <mat-card-title>Para tener en cuenta</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
 
-        Hola Mundo
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue, lacus quis vehicula euismod, erat nibh mattis quam, sit amet mattis magna massa in metus. Quisque finibus, velit ac dignissim placerat, neque risus gravida leo, non rutrum dolor massa vitae nulla. Phasellus scelerisque sit amet neque quis porta. Quisque mattis sodales semper. Proin fermentum venenatis purus. Mauris ut mi molestie, bibendum metus id, lacinia urna. Quisque ullamcorper felis massa, et gravida lorem rutrum sed
                   
        
     </mat-card-content>
 </mat-card>
+
+<br>
+<br>
+
+
+
+<mat-card class="card-oas" >
+    <mat-card-header>
+        <mat-card-title>Verificar documento</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+                  
+        <mat-form-field appearance="outline">
+            <mat-label>Hash</mat-label>
+            <input matInput placeholder="30 Caracteres" type="text" [(ngModel)]="hash" required>
+            <mat-icon matSuffix>description</mat-icon>
+            <mat-hint>Por favor ingrese el código hash</mat-hint>
+        </mat-form-field>
+
+        
+        <button mat-flat-button color="primary" (click)="verificarDocumento()">Verificar código Hash</button>
+
+    </mat-card-content>
+</mat-card>
+
+<ng2-smart-table  [source]="source" [settings]="settings"></ng2-smart-table>

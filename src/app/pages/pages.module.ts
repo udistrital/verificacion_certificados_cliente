@@ -17,6 +17,10 @@ import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } f
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Ng2SmartTableModule  } from 'ng2-smart-table';
+
 
 const pagesComponents = [
   DashboardComponent,
@@ -46,6 +50,9 @@ const materialModules = [
   imports: [
     CommonModule,
     PagesRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    Ng2SmartTableModule,
     ...materialModules
   ]
 })
