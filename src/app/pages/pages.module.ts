@@ -20,6 +20,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule  } from 'ng2-smart-table';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+
 
 
 const pagesComponents = [
@@ -53,6 +55,8 @@ const materialModules = [
     HttpClientModule,
     FormsModule,
     Ng2SmartTableModule,
+    RecaptchaFormsModule, 
+    RecaptchaModule,
     ...materialModules
   ]
 })

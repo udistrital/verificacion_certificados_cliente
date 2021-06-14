@@ -4,6 +4,9 @@ import { environment } from './../../../environments/environment'
 import { Documento } from '../../@core/models/documento';
 import { LocalDataSource } from 'ng2-smart-table';
 
+export interface FormModel {
+  captcha?: string;
+}
 
 @Component({
   selector: 'app-verificacion-informacion',
@@ -12,8 +15,10 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class VerificacionInformacionComponent implements OnInit {
 
+  formModel: FormModel = {};
   documento: Documento;
   hash: string = '';
+  key: string='';//variable que contiene el valor del sitekey del captcha
   source: LocalDataSource = new LocalDataSource();
   settings: any;
 
@@ -21,6 +26,20 @@ export class VerificacionInformacionComponent implements OnInit {
     private request: RequestManager
 
   ) { 
+
+  }
+
+  cargarSiteKey(){
+    this.request.get(environment.ACADEMICA_JBPM_SERVICE, 'sitekey')
+    .subscribe((sitekey: any) => {
+      if (sitekey) {
+        this.key = sitekey['sitekey']['key'];
+        console.log(this.key);
+        //captchaProtectedForm.form.valid;
+      }
+    }, (error) => {
+      console.log(error);
+    })
 
   }
 
@@ -109,7 +128,7 @@ export class VerificacionInformacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarCampos();
-    console.log(this.documento);
+    this.cargarSiteKey()
   }
 
 }

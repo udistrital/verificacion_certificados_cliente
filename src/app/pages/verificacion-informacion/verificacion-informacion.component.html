@@ -9,9 +9,13 @@
 
     <mat-card-content>
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue, lacus quis vehicula euismod, erat nibh mattis quam, sit amet mattis magna massa in metus. Quisque finibus, velit ac dignissim placerat, neque risus gravida leo, non rutrum dolor massa vitae nulla. Phasellus scelerisque sit amet neque quis porta. Quisque mattis sodales semper. Proin fermentum venenatis purus. Mauris ut mi molestie, bibendum metus id, lacinia urna. Quisque ullamcorper felis massa, et gravida lorem rutrum sed
-                  
-       
+        <p>
+            Estimado usuario, a través de esta página web usted podrá verificar la existencia del código hash dentro de las bases de datos de la Universidad Distrital Francisco José de Caldas, así como conocer los datos asociados con el mismo. A partir de esta información, se podrá validar si el documento donde se refleja el código hash presenta los mismos datos, y de esta forma comprobar la autenticidad de estos últimos.           
+        </p>
+
+        <p>
+            La información reflejada es tratada y administrada por la Universidad Distrital Francisco José de Caldas conforme a lo previsto en el documento Resolución 432 de 2016 <b>"Politica de tratamiento de Datos Personales"</b> y la <b>Resolución 711 de 2008</b> sobre la reglamentación del uso de los servicios de publicación en internet y correo electrónico que se prestan en la Universidad.
+        </p>
     </mat-card-content>
 </mat-card>
 
@@ -26,17 +30,33 @@
     </mat-card-header>
     <mat-card-content>
                   
-        <mat-form-field appearance="outline">
-            <mat-label>Hash</mat-label>
-            <input matInput placeholder="30 Caracteres" type="text" [(ngModel)]="hash" required>
-            <mat-icon matSuffix>description</mat-icon>
-            <mat-hint>Por favor ingrese el código hash</mat-hint>
-        </mat-form-field>
+ 
 
         
-        <button mat-flat-button color="primary" (click)="verificarDocumento()">Verificar código Hash</button>
+       
 
+
+        <form #captchaProtectedForm="ngForm" (ngSubmit)="verificarDocumento()">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Hash</mat-label>
+                <input matInput placeholder="30 Caracteres" minlength="4" type="text" [(ngModel)]="hash" [ngModelOptions]="{standalone: true}" required>
+                <mat-icon matSuffix>description</mat-icon>
+                <mat-hint>Por favor ingrese el código hash</mat-hint>
+            </mat-form-field>
+
+            <re-captcha *ngIf="key!==''"
+              [(ngModel)]="formModel.captcha"
+              name="captcha"
+              required
+              [siteKey]="key"
+              #captchaControl="ngModel"
+            ></re-captcha>
+            <button type="submit" *ngIf="captchaProtectedForm.form.valid" mat-flat-button color="primary">
+                Verificar código Hash
+            </button>
+        </form>
     </mat-card-content>
 </mat-card>
 
-<ng2-smart-table  [source]="source" [settings]="settings"></ng2-smart-table>
+<ng2-smart-table *ngIf="documento!==undefined" [source]="source" [settings]="settings"></ng2-smart-table>
