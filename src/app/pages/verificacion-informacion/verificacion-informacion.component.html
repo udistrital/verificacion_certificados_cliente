@@ -30,13 +30,8 @@
     </mat-card-header>
     <mat-card-content>
                   
- 
 
-        
-       
-
-
-        <form #captchaProtectedForm="ngForm" (ngSubmit)="verificarDocumento()">
+        <form #captchaProtectedForm="ngForm" >
 
             <mat-form-field appearance="outline">
                 <mat-label>Hash</mat-label>
@@ -52,7 +47,7 @@
               [siteKey]="key"
               #captchaControl="ngModel"
             ></re-captcha>
-            <button type="submit" *ngIf="captchaProtectedForm.form.valid" mat-flat-button color="primary">
+            <button type="button" (click)="verificarDocumento()" *ngIf="captchaProtectedForm.form.valid" mat-flat-button color="primary">
                 Verificar código Hash
             </button>
         </form>
